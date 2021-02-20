@@ -50,7 +50,7 @@ public class BookmarkRestController {
         }
     }
 
-    @PostMapping("/tutorials")
+    @PostMapping("/bookmarks")
     public ResponseEntity<Bookmark> createBookmark(@RequestBody Bookmark bookmark) {
         try {
             Bookmark newBookmark = bookmarkRepository
@@ -76,7 +76,7 @@ public class BookmarkRestController {
         }
     }
 
-    @DeleteMapping("/tutorials/{id}")
+    @DeleteMapping("/bookmarks/{id}")
     public ResponseEntity<HttpStatus> deleteBookmark(@PathVariable("id") long id) {
         try {
             bookmarkRepository.deleteById(id);
@@ -86,7 +86,7 @@ public class BookmarkRestController {
         }
     }
 
-    @DeleteMapping("/tutorials")
+    @DeleteMapping("/bookmarks")
     public ResponseEntity<HttpStatus> deleteAllBookmarks() {
         try {
             bookmarkRepository.deleteAll();
