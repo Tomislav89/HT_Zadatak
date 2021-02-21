@@ -23,7 +23,7 @@ public class User {
     private String password;
     private boolean loggedIn;
 
-    @OneToMany(mappedBy = "account")
+    @OneToMany(mappedBy = "user")
     Set<Bookmark> listOfBookmarks = new HashSet<>();
 
     public User(String username, String password) {
