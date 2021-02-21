@@ -3,16 +3,14 @@ package com.zadatak.ht.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode
+@Table(name = "bookmarks")
 public class Bookmark {
 
     @Id
@@ -23,11 +21,11 @@ public class Bookmark {
 
     @ManyToOne
     @JsonIgnore
-    private Account account;
+    private User user;
 
-    public Bookmark(Account account, String uri, String description) {
+    public Bookmark(User user, String uri, String description) {
         this.description = description;
         this.uri = uri;
-        this.account = account;
+        this.user = user;
     }
 }

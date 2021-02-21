@@ -54,7 +54,7 @@ public class BookmarkRestController {
     public ResponseEntity<Bookmark> createBookmark(@RequestBody Bookmark bookmark) {
         try {
             Bookmark newBookmark = bookmarkRepository
-                    .save(new Bookmark(bookmark.getAccount(),bookmark.getUri(),bookmark.getDescription()));
+                    .save(new Bookmark(bookmark.getUser(),bookmark.getUri(),bookmark.getDescription()));
             return new ResponseEntity<>(newBookmark, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -67,7 +67,7 @@ public class BookmarkRestController {
 
         if (bookmarkData.isPresent()) {
             Bookmark existingBookmark = bookmarkData.get();
-            existingBookmark.setAccount(bookmark.getAccount());
+            existingBookmark.setUser(bookmark.getUser());
             existingBookmark.setDescription(bookmark.getDescription());
             existingBookmark.setUri(bookmark.getUri());
             return new ResponseEntity<>(bookmarkRepository.save(existingBookmark), HttpStatus.OK);
