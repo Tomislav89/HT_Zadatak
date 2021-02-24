@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode
-@Table(name = "bookmarks")
+
 public class Bookmark {
 
     @Id

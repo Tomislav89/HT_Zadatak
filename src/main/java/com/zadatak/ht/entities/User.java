@@ -12,7 +12,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode
-@Table(name = "users")
+
 public class User {
 
     @Id
